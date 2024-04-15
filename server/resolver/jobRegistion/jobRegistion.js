@@ -1,5 +1,5 @@
 const mongoDataMethod = require('../../data/db');
-const UserData = require ('../../models/Jobs/JobData');
+const JobData = require ('../../models/jobRegistion/JobData');
 const typeDefs_account = require('../../schema/Accountschema');
 
 const user_resolvers =  {
@@ -14,8 +14,8 @@ const user_resolvers =  {
 
     Mutation : {
         jobRegistion : async (parents , args ,context , infor ) =>{
-           const  newJob= new UserData ({
-                Job : args.input.Job ,
+           const  newJob= new JobData ({
+                JobName : args.input.JobName ,
                 JobType : args.input.JobType ,
                 price : args.input.price ,
                 jobDecription : args.input.jobDecription,

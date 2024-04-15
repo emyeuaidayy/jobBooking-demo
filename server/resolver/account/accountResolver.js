@@ -13,7 +13,7 @@ const account_resolvers = {
     },
 
     getAllUser : async  (parent, args, { mongoDataMethods }) =>   await mongoDataMethod.getAllUser(),
-    
+      
 
   },
 

@@ -2,7 +2,7 @@ const { gql } = require('graphql-tag');
 
 const typeDefs_User = gql`
   type Job {
-    Job : String!
+    JobName : String!
     JobType : String!
     jobDecription : String!
     price : String!
@@ -13,7 +13,7 @@ const typeDefs_User = gql`
 
   }
   input JobInput {
-    Job : String!
+    JobName : String!
     JobType : String!
     jobDecription : String!
     price : String!
