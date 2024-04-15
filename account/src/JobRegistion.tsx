@@ -54,7 +54,7 @@ const JobRegistration = () => {
       }) {
         jobDecription
         price
-        Job
+        JobName
         JobType
         userId
         
