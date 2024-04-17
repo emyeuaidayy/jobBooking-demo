@@ -40,8 +40,9 @@ const typeDefs_account = gql`
   type Query {
     register: [AccountRegister]
     login: [Account]
-    getUserNamebyID ( id: String!) : Account
+    getUserNamebyID ( id: String!) : AccountRegister
     getAllUser : [AccountRegister]
+  
   }
   
   type Mutation {

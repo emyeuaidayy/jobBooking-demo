@@ -3,6 +3,7 @@ import { View, Text, TextInput, Button, StyleSheet ,Alert} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import jwt_decode, { jwtDecode } from 'jwt-decode';
 import jwt from 'jsonwebtoken';
+import path from './setUp'
 
 import "core-js/stable/atob"
 
@@ -31,7 +32,7 @@ const AccountRegister = ({navigation} ) => {
     const variables = {};
 
     try {
-      const res = await fetch('http://10.10.2.117:3000/graphql', {
+      const res = await fetch(path, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

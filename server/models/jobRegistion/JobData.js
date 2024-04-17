@@ -22,6 +22,12 @@ const jobSchema = new schema ({
     },
     userId : {
         type : String 
+    },
+    status : {
+        type : String
+    },
+    customerId : {
+        type : String
     }
     
  

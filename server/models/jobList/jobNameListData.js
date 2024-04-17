@@ -4,7 +4,12 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const jobName = new Schema({
-  jobName: String
+  jobName :{
+    type : String
+  },
+
+ 
+
 });
 
 

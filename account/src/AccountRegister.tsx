@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, TextInput, Alert } from 'react-native';
+import path from './setUp'
+
 
 const AccountRegister = ({navigation}) => {
   const [stateVariables, setStateVariables] = useState({
@@ -48,7 +50,7 @@ const AccountRegister = ({navigation}) => {
     const variables = {};
 
     try {
-      const res = await fetch('http://10.10.2.117:3000/graphql', {
+      const res = await fetch(path, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

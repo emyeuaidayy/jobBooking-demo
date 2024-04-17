@@ -1,20 +1,33 @@
 
 
-const JobData = require('../models/jobRegistion/JobData')
+const Job = require('../models/jobRegistion/JobData')
 const Account = require('../models/account/AccountRegister')
-const JobListData = require ('../models/jobList/jobNameListData')
+const JobData = require('../models/jobList/JobData')
+
+
 
 const mongoDataMethod  = {
     getUserName : async id => await  Account.findById(id),
 
     getAllUser : async (condition = null)=> condition === null ? await Account.find() : await Account.find(condition),
 
-    getJobbyName : async Job => await JobData.findOne({ Job: " " }),
+    getJobbyName : async JobName => await Job.find({ JobName : JobName ,status : "available"}),
 
-    getAllJob : async (condition = null)=> condition === null ? await JobData.find() : await JobData.find(condition),
+    getJobBookedbyName : async customerId => await Job.find({ customerId : customerId ,status : "unavailable"}),
 
-    getAllJobName : async (condition = null) => condition ===null ? await  JobListData.find() : await JobListData.find(condition),
+    getYourJob : async userId => await Job.find({ userId : userId }),
 
+    getJobNameType : async JobType => await Job.find ({JobType : JobName}),
+
+    getAllJob : async (condition = null)=> condition === null ? await Job.find() : await Job.find(condition),
+
+    getJobbyID : async id => await JobData.findById(id),
+
+    getJobbyJobType : async JobType => await JobType.find({JobType : JobType}),
+
+
+
+    
    
 }
 

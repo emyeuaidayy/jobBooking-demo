@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, Button, StyleSheet, } from 'react-native';
 import jwt_decode, { jwtDecode } from 'jwt-decode';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import path from './setUp'
 const HomeScreen =  ({navigation} ) => {
 
   const [userId, setUserId] = useState('');
@@ -16,7 +16,7 @@ const HomeScreen =  ({navigation} ) => {
 
       const token = await AsyncStorage.getItem('token')
       const decoded  :JwtPayload=  jwtDecode(token) ;
-      console.log(decoded);
+      // console.log(decoded);
       interface JwtPayload {
         accountId: string;
     }
@@ -32,7 +32,7 @@ const HomeScreen =  ({navigation} ) => {
         }
       }
     `;
-    const response = await fetch('http://10.10.2.117:3000/graphql', {
+    const response = await fetch( path, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -60,7 +60,15 @@ const HomeScreen =  ({navigation} ) => {
     const goToJobRegistration = () => {
       navigation.navigate('JobRegistion');
     };
-    
+    const goToBooking = () => {
+      navigation.navigate('BookingJob')
+    }
+    const goToBooked = () => {
+      navigation.navigate ('JobBooked')
+    }
+    const goToYourJob = () => {
+      navigation.navigate ('YourJob')
+    }
     // useEffect(() => {
     //   showInformation();
     // }, []);}
@@ -75,8 +83,22 @@ const HomeScreen =  ({navigation} ) => {
 
       </View>
       <Button title="Job Register" onPress={goToJobRegistration} />
+      <View style = {styles.signUp }>
+      </View>
+
+      <Button title="Job Booked" onPress={goToBooked} />
+      <View style = {styles.signUp }>
+      </View>
+
+      <Button title="Your Job" onPress={goToYourJob} />
+      <View style = {styles.signUp }>
+      </View>
+
+      <Button title="Job Booking" onPress={goToBooking} />
+      
 
     </View>
+    
   );
 };
 
