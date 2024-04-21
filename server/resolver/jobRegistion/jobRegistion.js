@@ -77,6 +77,12 @@ const user_resolvers =  {
         }
 
     },
+    Job : {
+        icon: async (parent) => {
+            // Trả về đối tượng icon của category hiện tại
+            return parent.icon;
+          },
+    },
     
 }
 module.exports= user_resolvers;

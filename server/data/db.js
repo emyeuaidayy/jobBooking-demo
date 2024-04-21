@@ -11,22 +11,15 @@ const mongoDataMethod  = {
 
     getAllUser : async (condition = null)=> condition === null ? await Account.find() : await Account.find(condition),
 
-    getJobbyName : async JobName => await Job.find({ JobName : JobName ,status : "available"}),
+    getJobbyName : async JobName => await Job.findOne({ JobName}),
 
-    getJobBookedbyName : async customerId => await Job.find({ customerId : customerId ,status : "unavailable"}),
-
-    getYourJob : async userId => await Job.find({ userId : userId }),
-
-    getJobNameType : async JobType => await Job.find ({JobType : JobName}),
+    getJobNameType : async JobType => await Job.findOne ({JobType}),
 
     getAllJob : async (condition = null)=> condition === null ? await Job.find() : await Job.find(condition),
 
-    getJobbyID : async id => await JobData.findById(id),
+    getJobbyID : async id => await JobData.findById(id)
 
-    getJobbyJobType : async JobType => await JobType.find({JobType : JobType}),
-
-
-
+    
     
    
 }

@@ -8,7 +8,6 @@ const jobList_resolvers = {
     
     Query : {
         getJobbyId : async (parent , {id} , {mongoDataMethods}) => await mongoDataMethod.getJobbyID(id)
-        
        
     },
 
@@ -40,9 +39,7 @@ const jobList_resolvers = {
             // Tạo token
             const token = jwt.sign({ jobId: jobChoose._id, name: jobChoose.name }, 'your_secret_key', { expiresIn: '1h' });
             return { token };
-        },
-      
-          
+        }
         
         
 

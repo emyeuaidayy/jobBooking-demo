@@ -11,6 +11,7 @@ const typeDefs_User = gql`
     token : String
     status : String
     customerId : String
+    icon : Image
     
     
 

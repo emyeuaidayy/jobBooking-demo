@@ -23,17 +23,15 @@ const typeDefs_Job = require('./schema/Jobchema');
 const typeDefs_jobList = require('./schema/jobListSchema')
 
 
-
 const account_resolvers = require('./resolver/account/accountResolver');
 const user_Job = require('./resolver/jobRegistion/jobRegistion');
 const jobList_resolvers = require('./resolver/jobList/jobList')
 
-
 const mongoDataMethod = require('./data/db');
 
 const server = new ApolloServer({
-  typeDefs :[typeDefs_account ,typeDefs_Job,typeDefs_jobList , ],
-  resolvers : [account_resolvers ,user_Job ,jobList_resolvers,],
+  typeDefs :[typeDefs_account ,typeDefs_Job,typeDefs_jobList],
+  resolvers : [account_resolvers ,user_Job ,jobList_resolvers],
   context : ()=> ({mongoDataMethod})
 });
 
